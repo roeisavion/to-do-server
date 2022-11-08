@@ -1,0 +1,19 @@
+{
+  "name": "to-do-server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "roei",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.1",
+    "uuid": "^9.0.0"
+  }
+}
