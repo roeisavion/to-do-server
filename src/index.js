@@ -1,22 +1,17 @@
 import cors from "cors";
 import bodyParser from "body-parser";
 import express from 'express';
-import mongoose from 'mongoose'
-import { router as todoRoutes } from "./routes/Todo.js";
+import { router as TaskRoutes } from "./routes/Routes.js";
+import { initializePool } from "./controllers/pool.js";
 
 const port = 8000;
-
 const app = express();
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/todoapp")
-  .then(() => {
-    console.log("CONNECTED TO DATABASE");
-  });
+export const pool = await initializePool();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(todoRoutes);
+app.use(TaskRoutes);
 
 app.listen(port, () => {
   console.log(`Listening to http://localhost:${port}`);
